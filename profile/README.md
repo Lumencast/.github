@@ -39,18 +39,18 @@ Lumencast fills the gap : an open protocol + schema you self-host, multi-languag
 
 | Repo | Purpose | Status |
 |---|---|---|
-| [`lumencast-protocol`](../../lumencast-protocol) | LSDP/1 + LSML 1.0 specs, conformance fixtures + scenarios, JSON Schema | draft |
-| [`lumencast-js`](../../lumencast-js) | TypeScript runtime + Node server SDK monorepo | not started |
-| [`lumencast-go`](../../lumencast-go) | Go server SDK + `lumencast` CLI binary | not started |
-| [`lumencast-rs`](../../lumencast-rs) | Rust SDK | not started |
+| [`lumencast-protocol`](https://github.com/Lumencast/lumencast-protocol) | LSDP/1 + LSML 1.0 specs, conformance fixtures + scenarios, JSON Schema | **draft** — usable as reference |
+| [`lumencast-js`](https://github.com/Lumencast/lumencast-js) | TypeScript runtime + Node server SDK monorepo | scaffolding |
+| [`lumencast-go`](https://github.com/Lumencast/lumencast-go) | Go server SDK + `lumencast` CLI binary | scaffolding |
+| [`lumencast-rs`](https://github.com/Lumencast/lumencast-rs) | Rust SDK | scaffolding |
 
 More languages and runtimes (Python, Vue, Svelte, Flutter, TUI, native) land in subsequent waves once the wave 1 trio stabilizes.
 
 ## Status
 
-This project is **early**. Specs are draft, no SDK has shipped yet. The conformance suite ships v0 with 16 scenarios covering the LSDP/1 + LSML 1.0 contract surface.
+This project is **early**. Specs are draft, no SDK has shipped a v0 release yet. The conformance suite ships v0 with 16 scenarios covering the LSDP/1 + LSML 1.0 contract surface.
 
-Watch the org for releases — when wave 1 lands, the README here will reflect it.
+Watch the org for releases — when wave 1 SDKs land their initial v0.1.0, this README will reflect it.
 
 ## Spec docs
 
