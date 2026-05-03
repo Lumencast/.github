@@ -9,7 +9,7 @@ A serveur authoritatif détient un état temps-réel. Il doit le **pousser** à 
 This pattern is everywhere — broadcast overlays, trading dashboards, NOC walls, esports brackets, ATC consoles, industrial SCADA, live betting tickers, conference Q&A boards, digital signage, game spectator UIs — and is **systematically reimplemented ad-hoc** in every domain. Lumencast extracts the kernel as :
 
 - **LSDP/1** — *Leaf State Delta Protocol* — a WebSocket protocol that pushes typed state at leaf-grain (`path → value`), with snapshot+delta, sequenced delivery, gap detection, reconnect, and token rotation
-- **LSML 1.0** — *Lumencast Scene Markup Language* — a JSON content-addressed format describing a tree of 8 closed primitives (`stack`, `grid`, `frame`, `text`, `image`, `shape`, `media`, `repeat`), with bindings, GPU-only animations, and operator-input metadata
+- **LSML 1.1** — *Lumencast Scene Markup Language* — a JSON content-addressed format describing a tree of 9 closed primitives (`stack`, `grid`, `frame`, `text`, `image`, `shape`, `media`, `repeat`, `instance`), with bindings, GPU-only animations, operator-input metadata, and 1.1+ extensions (universal props, multi-fill / gradients, vendor primitives via §17)
 - **Multi-language** — TypeScript / Go / Rust / Python — cross-paradigm, conformance-suite-tested
 
 ## Why a standard
@@ -39,12 +39,26 @@ Lumencast fills the gap : an open protocol + schema you self-host, multi-languag
 
 | Repo | Purpose | Status |
 |---|---|---|
-| [`lumencast-protocol`](https://github.com/Lumencast/lumencast-protocol) | LSDP/1 + LSML 1.0 specs, conformance fixtures + scenarios, JSON Schema | **draft** — usable as reference |
+| [`lumencast-protocol`](https://github.com/Lumencast/lumencast-protocol) | LSDP/1 + LSML 1.1 specs, conformance fixtures + scenarios, JSON Schema | **draft** — usable as reference |
 | [`lumencast-js`](https://github.com/Lumencast/lumencast-js) | TypeScript runtime + Node server SDK monorepo | scaffolding |
 | [`lumencast-go`](https://github.com/Lumencast/lumencast-go) | Go server SDK + `lumencast` CLI binary | scaffolding |
 | [`lumencast-rs`](https://github.com/Lumencast/lumencast-rs) | Rust SDK | scaffolding |
+| [`lumencast-py`](https://github.com/Lumencast/lumencast-py) | Python SDK | v0.1.0 |
+| [`lumencast-figma`](https://github.com/Lumencast/lumencast-figma) | **Figma plugin** — author LSML 1.1 scenes visually, round-trip-stable export + import | **v0.1.0** |
 
-More languages and runtimes (Python, Vue, Svelte, Flutter, TUI, native) land in subsequent waves once the wave 1 trio stabilizes.
+More languages and runtimes (Vue, Svelte, Flutter, TUI, native) land in subsequent waves once wave 1 stabilises.
+
+## Authoring tools
+
+The first **Layer 5** authoring tool ships in wave 3a :
+
+- **[`lumencast-figma`](https://github.com/Lumencast/lumencast-figma)** —
+  open-source Figma plugin that exports Figma frames to LSML 1.1
+  bundles (`.lsml`) and reimports them back. No JSON written by hand,
+  full LSML 1.1 surface (text / shape / image / frame / stack /
+  instance / multi-fill gradients / Figma variable tokens / operator
+  inputs). Apache 2.0, networkAccess: none, zero telemetry. The
+  plugin is the leftmost arrow of the Figma → Prism → Orion pipeline.
 
 ## Status
 
